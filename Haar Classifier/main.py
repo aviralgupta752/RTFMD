@@ -2,12 +2,12 @@ import cv2
 import numpy as np
 from keras.models import load_model
 
-model = load_model(r"C:\Users\gupta\Downloads\IVP Project\RTFMD\mask_detector.model")
+model = load_model(r"mask_detector.model")
 results = {1:'without mask', 0:'mask'}
 GR_dict = {1:(0,0,255), 0:(0,255,0)}
 rect_size = 4
 cap = cv2.VideoCapture(0) 
-haarcascade = cv2.CascadeClassifier(r'C:\Windows.old\Users\gupta\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.8_qbz5n2kfra8p0\LocalCache\local-packages\Python38\site-packages\cv2\data\haarcascade_frontalface_default.xml')
+haarcascade = cv2.CascadeClassifier(r'haarcascade_frontalface_default.xml')
 
 while True:
     (rval, im) = cap.read()
