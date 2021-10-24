@@ -3,6 +3,7 @@ import numpy as np
 from tensorflow.keras.models import load_model
 from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.applications.mobilenet_v2 import preprocess_input
+import os
 
 def detect_face(frame, faceNet):
 	(h, w) = frame.shape[:2]
@@ -59,8 +60,10 @@ def predict(faces, maskNet):
 if __name__=="__main__":
 	# Loading face detection model.
 	print("[INFO] Loading face detector model...")
-	prototxtPath = r"face_detector\deploy.prototxt"
-	weightsPath = r"face_detector\res10_300x300_ssd_iter_140000.caffemodel"
+	# prototxtPath = r"face_detector\deploy.prototxt"
+	prototxtPath = os.path.join("face_detector", "deploy.prototxt")
+	# weightsPath = r"face_detector\res10_300x300_ssd_iter_140000.caffemodel"
+	weightsPath = os.path.join("face_detector", "res10_300x300_ssd_iter_140000.caffemodel")
 	faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 	# Loading the face mask trained model.
