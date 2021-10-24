@@ -59,8 +59,8 @@ def predict(faces, maskNet):
 if __name__=="__main__":
 	# Loading face detection model.
 	print("[INFO] Loading face detector model...")
-	prototxtPath = r"face_detector\deploy.prototxt"
-	weightsPath = r"face_detector\res10_300x300_ssd_iter_140000.caffemodel"
+	prototxtPath = r"face_detector/deploy.prototxt"
+	weightsPath = r"face_detector/res10_300x300_ssd_iter_140000.caffemodel"
 	faceNet = cv2.dnn.readNet(prototxtPath, weightsPath)
 
 	# Loading the face mask trained model.
